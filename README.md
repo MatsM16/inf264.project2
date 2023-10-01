@@ -1,2 +1,3 @@
-# inf264.project2
-UiB INF264 Project 2
+# INF264 Project 2
+
+TODO: Make this file useful.
