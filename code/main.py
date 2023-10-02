@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 # Import model trainers
 from model_trainers.sklearn_knn import train_sklearn_knn
 from model_trainers.sklearn_tree import train_sklearn_tree
+from model_trainers.sklearn_svm import train_sklearn_svm
 
 # Load datset
 X = np.load("emnist_hex_images.npy")
@@ -21,3 +22,5 @@ X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test
 best_sklearn_knn = train_sklearn_knn(X_train, y_train)
 
 best_sklearn_tree = train_sklearn_tree(X_train, y_train)
+
+best_sklearn_svm = train_sklearn_svm(X_train, y_train)
