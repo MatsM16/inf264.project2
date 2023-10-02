@@ -1,7 +1,7 @@
 from typing import TypeVar, Sequence, Callable, Generic
 from sklearn.model_selection import train_test_split
 from time import perf_counter_ns
-from parallel import parallel_map
+from logger import log_debug, log
 
 THyperParam = TypeVar('THyperParam')
 """
@@ -12,6 +12,8 @@ TModel = TypeVar('TModel')
 """
 Type of model.
 """
+
+detailed_logs = True
 
 class Classifier(Generic[TModel]):
     """
@@ -76,20 +78,20 @@ class Classifier(Generic[TModel]):
         """
 
     def print_details(self):
-        print(f"=== Model:\t {self.name}")
-        print(f"Training size:\t {self.train_size} pts.")
-        print(f"Training time:\t {format_duration_ns(self.train_time)}")
-        print(f"Test size:\t {self.test_size} pts.")
-        print(f"Test time:\t {format_duration_ns(self.test_time)}")
-        print(f"Accuracy:\t {self.accuracy:.1%}")
-        print(f"Time pr predict: {format_duration_ns(self.predict_time)}")
-        print()
+        log(f"=== Model:\t {self.name}")
+        log(f"Training size:\t {self.train_size} pts.")
+        log(f"Training time:\t {format_duration_ns(self.train_time)}")
+        log(f"Test size:\t {self.test_size} pts.")
+        log(f"Test time:\t {format_duration_ns(self.test_time)}")
+        log(f"Accuracy:\t {self.accuracy:.1%}")
+        log(f"Time pr predict: {format_duration_ns(self.predict_time)}")
+        log("")
 
     def print_details_short(self):
-        print(f"=== Model:\t {self.name}")
-        print(f"Accuracy:\t {self.accuracy:.1%}")
-        print(f"Time pr predict: {format_duration_ns(self.predict_time)}")
-        print()
+        log(f"=== Model:\t {self.name}")
+        log(f"Accuracy:\t {self.accuracy:.1%}")
+        log(f"Time pr predict: {format_duration_ns(self.predict_time)}")
+        log("")
 
 class ClassifierGroup(Generic[TModel, THyperParam]):
     """
@@ -121,14 +123,14 @@ class ClassifierGroup(Generic[TModel, THyperParam]):
         return self.name
 
     def print_details(self):
-        print(f"====== Group: {self.name}")
-        print(f"Best model: {self.best_model.name}\n")
+        log(f"====== Group: {self.name}")
+        log(f"Best model: {self.best_model.name}\n")
         for model in self.models:
             model.print_details()
 
     def print_details_short(self):
-        print(f"====== Group: {self.name}")
-        print(f"Best model: {self.best_model.name}\n")
+        log(f"====== Group: {self.name}")
+        log(f"Best model: {self.best_model.name}\n")
         for model in self.models:
             model.print_details_short()
 
@@ -147,11 +149,18 @@ def create_train_measure_classifiers(group_name:str, hyper_parameters: Sequence[
 
     def model_from_parameters(hyper_parameter):
         name, model = model_factory(hyper_parameter)
+
+        log_debug(f"Created model {name}")
+
         return train_measure_classifier(name, model, hyper_parameter, X_train, y_train, X_val, y_val)
 
-    models = parallel_map(model_from_parameters, hyper_parameters)
+    log_debug(f"Group started: {group_name}")
+
+    models = list(map(model_from_parameters, hyper_parameters))
 
     best_model = max(models, key=lambda m : m.accuracy)
+
+    log_debug(f"Group completed: {group_name}")
 
     return ClassifierGroup(group_name, models, best_model, model_factory)
 
@@ -167,12 +176,18 @@ def train_measure_classifier(name:str, model:TModel, hyper_parameters:THyperPara
     X_test: Testing dataset.
     y_test: Testing labels.
     """
+
+    log_debug(f"Training started: {name}")
+
     # Train model
     train_time_start = perf_counter_ns()
 
     model.fit(X_train, y_train)
     
     train_time_end = perf_counter_ns()
+
+    log_debug(f"Training completed: {name} (Took {format_duration_ns(train_time_end - train_time_start)})")
+    log_debug(f"Testing started: {name}")
 
     # Test model
     test_time_start = perf_counter_ns()
@@ -186,6 +201,8 @@ def train_measure_classifier(name:str, model:TModel, hyper_parameters:THyperPara
     for i in range(len(y_test)):
         if y_test_predicted[i] == y_test[i]:
             test_correct += 1 
+
+    log_debug(f"Testing completed: {name} ({(test_correct / len(y_test)):.0%} accurate, Took {format_duration_ns(train_time_end - train_time_start)})")
 
     return Classifier(model, name,
         train_size=len(X_train),
