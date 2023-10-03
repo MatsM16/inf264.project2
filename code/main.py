@@ -2,11 +2,12 @@ import numpy as np
 import platform
 import multiprocessing
 import psutil
-from logger import log
+from logger import log, log_debug
 from dump import start_timestamp
 from formats import format_bytes, format_duration
 from sklearn.model_selection import train_test_split
 from time import perf_counter_ns
+from model_trainers.trainer import measure_and_find_best
 
 # Import model trainers
 from model_trainers.sklearn_knn import train_sklearn_knn
@@ -43,9 +44,20 @@ X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test
 
 best_sklearn_knn = train_sklearn_knn(X_train, y_train)
 
-#best_sklearn_tree = train_sklearn_tree(X_train, y_train)
+best_sklearn_tree = train_sklearn_tree(X_train, y_train)
 
-#best_sklearn_svm = train_sklearn_svm(X_train, y_train)
+best_sklearn_svm = train_sklearn_svm(X_train, y_train)
+
+log_debug("Finding best model...")
+
+# Measure performance on validation set and pick best model
+best_model, validate_report = measure_and_find_best([best_sklearn_knn, best_sklearn_tree, best_sklearn_svm], "validate2", X_val, y_val)
+
+# Measure performance on test set to estimate generalized performance.
+test_report = best_model.measure_performance("test", )
+
+log("====== Best model")
+best_model.print_details()
 
 time_end = perf_counter_ns()
 log(f"Program completed after {format_duration(time_end - time_start)}")
