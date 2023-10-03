@@ -1,5 +1,5 @@
 from sklearn.tree import DecisionTreeClassifier
-from model_trainers.trainer import create_train_measure_classifiers
+from model_trainers.trainer import create_train_validate_model_group
 
 def train_sklearn_tree(X, y):
     hyper_parameters = [
@@ -7,7 +7,7 @@ def train_sklearn_tree(X, y):
         ("gini", "random"), ("entropy", "random"), ("log_loss", "random")
         ]
 
-    models = create_train_measure_classifiers(
+    models = create_train_validate_model_group(
         "sklearn.knn",
         hyper_parameters,
         create_sklearn_tree, 
@@ -15,7 +15,7 @@ def train_sklearn_tree(X, y):
 
     models.print_details()
 
-    return models.best_model.model
+    return models
 
 def create_sklearn_tree(hyper_params):
     (criterion, split) = hyper_params
