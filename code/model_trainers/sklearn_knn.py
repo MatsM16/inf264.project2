@@ -4,7 +4,7 @@ from dump import get_dump_file
 import matplotlib.pyplot as plt
 
 def train_sklearn_knn(X, y):
-    hyper_parameters = [1, 3, 5, 11, 17]
+    hyper_parameters = [1, 3, 5, 7, 11, 17, 19, 23]
 
     models = create_train_validate_model_group(
         "sklearn.knn",
@@ -28,7 +28,7 @@ def plot_sklearn_knn(group, k):
     plt.title("Accuracy by k")
     plt.xlabel("Neighbours (K)")
     plt.ylabel("Accuracy (%)")
-    plt.savefig(get_dump_file(f"sklearn.knn.accuracy_by_k.png"))
+    plt.savefig(get_dump_file(f"sklearn.knn.accuracy.png"))
 
 def create_sklearn_knn(k):
     return f"sklearn.knn-k{k}", KNeighborsClassifier(n_neighbors=k)
