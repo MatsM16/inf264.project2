@@ -18,7 +18,10 @@ def plot_accuracy_models(models:list[Classifier], title="model", skip_name_prefi
     }
 
     if all("test" in model.reports for model in models):
-        accuracy["Testing"] = [int(model.reports["test"].accuracy * 100) for model in models]
+        accuracy["Test"] = [int(model.reports["test"].accuracy * 100) for model in models]
+
+    if all("estimate" in model.reports for model in models):
+        accuracy["Estimate"] = [int(model.reports["estimate"].accuracy * 100) for model in models]
 
     fig, ax = plt.subplots(layout="constrained")
     for label, accuracy_data in accuracy.items():
