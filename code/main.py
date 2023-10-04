@@ -42,6 +42,9 @@ y = np.load("emnist_hex_labels.npy")
 X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.15)
 X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.15)
 
+# Measure performance of different configurations
+# of different classifier-types.
+
 best_sklearn_knn = train_sklearn_knn(X_train, y_train)
 
 best_sklearn_tree = train_sklearn_tree(X_train, y_train)
@@ -51,10 +54,10 @@ best_sklearn_svm = train_sklearn_svm(X_train, y_train)
 log_debug("Finding best model...")
 
 # Measure performance on validation set and pick best model
-best_model, validate_report = measure_and_find_best([best_sklearn_knn, best_sklearn_tree, best_sklearn_svm], "validate2", X_val, y_val)
+best_model, validate_report = measure_and_find_best([best_sklearn_knn.best_model, best_sklearn_tree.best_model, best_sklearn_svm.best_model], "validate2", X_val, y_val)
 
 # Measure performance on test set to estimate generalized performance.
-test_report = best_model.measure_performance("test", )
+test_report = best_model.measure_performance("test", X_test, y_test)
 
 log("====== Best model")
 best_model.print_details()

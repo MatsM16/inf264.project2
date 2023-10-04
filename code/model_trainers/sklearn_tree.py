@@ -50,4 +50,4 @@ def plot_sklearn_tree(group):
 
 def create_sklearn_tree(hyper_params):
     (criterion, split) = hyper_params
-    return f"sklearn.tree-{criterion}-split_{split}", DecisionTreeClassifier(criterion=criterion, splitter=split)
+    return f"sklearn.tree-{criterion}-{split}", DecisionTreeClassifier(criterion=criterion, splitter=split)

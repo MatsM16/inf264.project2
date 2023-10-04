@@ -19,8 +19,8 @@ def train_sklearn_knn(X, y):
     return models
 
 def plot_sklearn_knn(group, k):
-    accuracy_train_by_k = [int(model.reports["train"].accuracy * 100) for model in models.models]
-    accuracy_val_by_k = [int(model.reports["validate"].accuracy * 100) for model in models.models]
+    accuracy_train_by_k = [int(model.reports["train"].accuracy * 100) for model in group.models]
+    accuracy_val_by_k = [int(model.reports["validate"].accuracy * 100) for model in group.models]
 
     plt.plot(k, accuracy_train_by_k, label="Training set")
     plt.plot(k, accuracy_val_by_k, label="Validation set")
