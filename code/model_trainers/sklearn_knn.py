@@ -1,8 +1,6 @@
 from sklearn.neighbors import KNeighborsClassifier
 from model_trainers.trainer import create_train_validate_model_group
 from plot import plot_accuracy_group
-from dump import get_dump_file
-import matplotlib.pyplot as plt
 
 def train_sklearn_knn(X, y):
     hyper_parameters = [1, 3, 5, 7, 11, 17, 19, 23]

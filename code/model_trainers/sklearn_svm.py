@@ -1,9 +1,6 @@
 from sklearn.svm import SVC
 from model_trainers.trainer import create_train_validate_model_group
 from plot import plot_accuracy_group
-from dump import get_dump_file
-import matplotlib.pyplot as plt
-import numpy as np
 
 def train_sklearn_svm(X, y):
     hyper_parameters = [

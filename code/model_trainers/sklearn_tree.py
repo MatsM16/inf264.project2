@@ -1,9 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from model_trainers.trainer import create_train_validate_model_group
 from plot import plot_accuracy_group
-from dump import get_dump_file
-import numpy as np
-import matplotlib.pyplot as plt
 
 def train_sklearn_tree(X, y):
     hyper_parameters = [
@@ -25,4 +22,4 @@ def train_sklearn_tree(X, y):
 
 def create_sklearn_tree(hyper_params):
     (criterion, split) = hyper_params
-    return f"sklearn.tree-{criterion}-{split}", DecisionTreeClassifier(criterion=criterion, splitter=split)
+    return f"sklearn.tree-{criterion}-{split}", DecisionTreeClassifier(criterion=criterion, splitter=split, )
