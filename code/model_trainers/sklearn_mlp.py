@@ -11,6 +11,8 @@ def train_sklearn_mlp(X, y):
         (64,),
         (32,32),
         (64,64),
+        (100, 100),
+        (100, 100, 100)
     ]
 
     models = create_train_validate_model_group(
