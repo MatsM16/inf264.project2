@@ -7,16 +7,16 @@ def train_sklearn_mlp(X, y):
         (100,), # Default hidden layers
         (16, ), # Size of image
         (16, 16), # 2x size of image
-        (32,)
-        (64,)
+        (32,),
+        (64,),
         (32,32),
-        (64,64)
+        (64,64),
     ]
 
     models = create_train_validate_model_group(
         "sklearn.mlp",
         hyper_parameters,
-        create_sklearn_svm, 
+        create_sklearn_mlp, 
         X, y)
 
     models.print_details()

@@ -1,4 +1,5 @@
 from model_trainers.trainer import ClassifierGroup, Classifier
+from dump import get_dump_file
 import matplotlib.pyplot as plt
 import numpy as np
 
