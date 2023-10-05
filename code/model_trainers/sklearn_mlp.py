@@ -26,4 +26,4 @@ def train_sklearn_mlp(X, y):
     return models
 
 def create_sklearn_mlp(hyper_parameters):
-    return f"sklearn.mlp-{'-'.join(hyper_parameters)}", MLPClassifier(hidden_layer_sizes=hyper_parameters)
+    return f"sklearn.mlp-{'-'.join([str(param) for param in hyper_parameters])}", MLPClassifier(hidden_layer_sizes=hyper_parameters)
