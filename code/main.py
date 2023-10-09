@@ -68,7 +68,7 @@ log_debug("Finding best model...")
 best_model, validate_report = measure_and_find_best(candidate_models, "test", X_val, y_val)
 
 # Plot model performance on unseen data
-plot_accuracy_models(models=candidate_models, title="best")
+plot_accuracy_models(models=candidate_models, title="best", skip_name_prefix=len("sklearn."))
 
 # Measure performance on test set to estimate generalized performance.
 test_report = best_model.measure_performance("estimate", X_test, y_test)
