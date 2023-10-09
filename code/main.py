@@ -8,7 +8,7 @@ from formats import format_bytes, format_duration
 from sklearn.model_selection import train_test_split
 from time import perf_counter_ns
 from model_trainers.trainer import measure_and_find_best
-from plot import plot_accuracy_models
+from plot import plot_accuracy_models, plot_confusion_matrix
 
 # Import model trainers
 from model_trainers.sklearn_knn import train_sklearn_knn
@@ -75,6 +75,8 @@ test_report = best_model.measure_performance("estimate", X_test, y_test)
 
 log("====== Best model")
 best_model.print_details()
+
+plot_confusion_matrix(best_model, X_test, y_test)
 
 time_end = perf_counter_ns()
 log(f"Program completed after {format_duration(time_end - time_start)}")
