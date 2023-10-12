@@ -43,7 +43,6 @@ def plot_accuracy_models(models:list[Classifier], title="model", skip_name_prefi
     plt.savefig(get_dump_file(f"{title}.accuracy.png"))
     plt.close(fig='all')
 
-
 def plot_confusion_matrix(classifier:Classifier, X, y):
     """
     Plots the confusion matrix for the classifier on the given dataset.
