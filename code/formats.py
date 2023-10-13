@@ -30,3 +30,7 @@ def format_duration(duration:float):
 
     duration /= 60
     return f"{duration:.2f}min"
+
+def format_label(label:int):
+    if label > 15: return "_"
+    return f"{int(label):x}".upper()

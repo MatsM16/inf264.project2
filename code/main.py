@@ -8,7 +8,7 @@ from formats import format_bytes, format_duration
 from sklearn.model_selection import train_test_split
 from time import perf_counter_ns
 from model_trainers.trainer import measure_and_find_best
-from plot import plot_accuracy_models, plot_confusion_matrix
+from plot import plot_accuracy_models, plot_confusion_matrix, plot_label_distribution, plot_dataexamples
 
 # Import model trainers
 from model_trainers.sklearn_knn import train_sklearn_knn
@@ -34,6 +34,10 @@ time_start = perf_counter_ns()
 # Load datset
 X = np.load("emnist_hex_images.npy")
 y = np.load("emnist_hex_labels.npy")
+
+plot_label_distribution(y, "Dataset")
+
+plot_dataexamples(X, y, title='all', max_examples=1)
 
 # Split data into subsets
 # X_train is used to train and find the best version of each model.
