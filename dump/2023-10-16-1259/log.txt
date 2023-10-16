@@ -1,0 +1,406 @@
+====== Starting program
+Logs are writted to 'dump/'-folder. Look for the timestamp.
+Timestamp:2023-10-16 12:59:55.448627
+
+=== Machine information
+Performance will vary from machine to machine. Take this into consideration.
+OS: Windows-10-10.0.22621-SP0
+CPU: Intel64 Family 6 Model 165 Stepping 5, GenuineIntel, 20 cores
+MEMORY: 32GB
+
+====== ====== ====== ====== ====== ======
+
+
+[dbug] Creating group sklearn.knn
+[dbug] Training sklearn.knn-k1
+[dbug] Done training sklearn.knn-k1 (Took 4.25ms)
+[dbug] Testing sklearn.knn-k1 on train
+[dbug] Done testing sklearn.knn-k1 on train (100% accurate, Took 1.09min)
+[dbug] Training sklearn.knn-k3
+[dbug] Done training sklearn.knn-k3 (Took 3.64ms)
+[dbug] Testing sklearn.knn-k3 on train
+[dbug] Done testing sklearn.knn-k3 on train (97% accurate, Took 1.19min)
+[dbug] Training sklearn.knn-k5
+[dbug] Done training sklearn.knn-k5 (Took 3.78ms)
+[dbug] Testing sklearn.knn-k5 on train
+[dbug] Done testing sklearn.knn-k5 on train (96% accurate, Took 1.43min)
+[dbug] Training sklearn.knn-k7
+[dbug] Done training sklearn.knn-k7 (Took 4.75ms)
+[dbug] Testing sklearn.knn-k7 on train
+[dbug] Done testing sklearn.knn-k7 on train (95% accurate, Took 1.43min)
+[dbug] Training sklearn.knn-k11
+[dbug] Done training sklearn.knn-k11 (Took 4.05ms)
+[dbug] Testing sklearn.knn-k11 on train
+[dbug] Done testing sklearn.knn-k11 on train (94% accurate, Took 1.42min)
+[dbug] Training sklearn.knn-k17
+[dbug] Done training sklearn.knn-k17 (Took 3.92ms)
+[dbug] Testing sklearn.knn-k17 on train
+[dbug] Done testing sklearn.knn-k17 on train (93% accurate, Took 1.42min)
+[dbug] Training sklearn.knn-k19
+[dbug] Done training sklearn.knn-k19 (Took 4.13ms)
+[dbug] Testing sklearn.knn-k19 on train
+[dbug] Done testing sklearn.knn-k19 on train (93% accurate, Took 1.45min)
+[dbug] Training sklearn.knn-k23
+[dbug] Done training sklearn.knn-k23 (Took 4.25ms)
+[dbug] Testing sklearn.knn-k23 on train
+[dbug] Done testing sklearn.knn-k23 on train (93% accurate, Took 1.45min)
+[dbug] Validating group sklearn.knn
+[dbug] Testing sklearn.knn-k1 on validate
+[dbug] Done testing sklearn.knn-k1 on validate (94% accurate, Took 11.70s)
+[dbug] Testing sklearn.knn-k3 on validate
+[dbug] Done testing sklearn.knn-k3 on validate (94% accurate, Took 13.38s)
+[dbug] Testing sklearn.knn-k5 on validate
+[dbug] Done testing sklearn.knn-k5 on validate (94% accurate, Took 15.98s)
+[dbug] Testing sklearn.knn-k7 on validate
+[dbug] Done testing sklearn.knn-k7 on validate (94% accurate, Took 15.41s)
+[dbug] Testing sklearn.knn-k11 on validate
+[dbug] Done testing sklearn.knn-k11 on validate (93% accurate, Took 15.56s)
+[dbug] Testing sklearn.knn-k17 on validate
+[dbug] Done testing sklearn.knn-k17 on validate (93% accurate, Took 15.33s)
+[dbug] Testing sklearn.knn-k19 on validate
+[dbug] Done testing sklearn.knn-k19 on validate (93% accurate, Took 15.43s)
+[dbug] Testing sklearn.knn-k23 on validate
+[dbug] Done testing sklearn.knn-k23 on validate (92% accurate, Took 15.55s)
+[dbug] Completed group sklearn.knn
+====== Group: sklearn.knn
+Best model: sklearn.knn-k5
+
+=== Model:	 sklearn.knn-k1
+Training size:	 66203 pts.
+Training time:	 4.25ms
+train: Accuracy=100%, TPP=984863ns, Size=66203, Duration=1.09min
+validate: Accuracy=94%, TPP=1.00ms, Size=11683, Duration=11.70s
+
+=== Model:	 sklearn.knn-k3
+Training size:	 66203 pts.
+Training time:	 3.64ms
+train: Accuracy=97%, TPP=1.07ms, Size=66203, Duration=1.19min
+validate: Accuracy=94%, TPP=1.15ms, Size=11683, Duration=13.38s
+
+=== Model:	 sklearn.knn-k5
+Training size:	 66203 pts.
+Training time:	 3.78ms
+train: Accuracy=96%, TPP=1.29ms, Size=66203, Duration=1.43min
+validate: Accuracy=94%, TPP=1.37ms, Size=11683, Duration=15.98s
+
+=== Model:	 sklearn.knn-k7
+Training size:	 66203 pts.
+Training time:	 4.75ms
+train: Accuracy=95%, TPP=1.30ms, Size=66203, Duration=1.43min
+validate: Accuracy=94%, TPP=1.32ms, Size=11683, Duration=15.41s
+
+=== Model:	 sklearn.knn-k11
+Training size:	 66203 pts.
+Training time:	 4.05ms
+train: Accuracy=94%, TPP=1.29ms, Size=66203, Duration=1.42min
+validate: Accuracy=93%, TPP=1.33ms, Size=11683, Duration=15.56s
+
+=== Model:	 sklearn.knn-k17
+Training size:	 66203 pts.
+Training time:	 3.92ms
+train: Accuracy=93%, TPP=1.29ms, Size=66203, Duration=1.42min
+validate: Accuracy=93%, TPP=1.31ms, Size=11683, Duration=15.33s
+
+=== Model:	 sklearn.knn-k19
+Training size:	 66203 pts.
+Training time:	 4.13ms
+train: Accuracy=93%, TPP=1.31ms, Size=66203, Duration=1.45min
+validate: Accuracy=93%, TPP=1.32ms, Size=11683, Duration=15.43s
+
+=== Model:	 sklearn.knn-k23
+Training size:	 66203 pts.
+Training time:	 4.25ms
+train: Accuracy=93%, TPP=1.31ms, Size=66203, Duration=1.45min
+validate: Accuracy=92%, TPP=1.33ms, Size=11683, Duration=15.55s
+
+[dbug] Creating group sklearn.tree
+[dbug] Training sklearn.tree-gini-best
+[dbug] Done training sklearn.tree-gini-best (Took 33.27s)
+[dbug] Testing sklearn.tree-gini-best on train
+[dbug] Done testing sklearn.tree-gini-best on train (100% accurate, Took 59.53ms)
+[dbug] Training sklearn.tree-entropy-best
+[dbug] Done training sklearn.tree-entropy-best (Took 33.02s)
+[dbug] Testing sklearn.tree-entropy-best on train
+[dbug] Done testing sklearn.tree-entropy-best on train (100% accurate, Took 57.43ms)
+[dbug] Training sklearn.tree-log_loss-best
+[dbug] Done training sklearn.tree-log_loss-best (Took 33.29s)
+[dbug] Testing sklearn.tree-log_loss-best on train
+[dbug] Done testing sklearn.tree-log_loss-best on train (100% accurate, Took 61.68ms)
+[dbug] Training sklearn.tree-gini-random
+[dbug] Done training sklearn.tree-gini-random (Took 6.40s)
+[dbug] Testing sklearn.tree-gini-random on train
+[dbug] Done testing sklearn.tree-gini-random on train (100% accurate, Took 62.07ms)
+[dbug] Training sklearn.tree-entropy-random
+[dbug] Done training sklearn.tree-entropy-random (Took 6.34s)
+[dbug] Testing sklearn.tree-entropy-random on train
+[dbug] Done testing sklearn.tree-entropy-random on train (100% accurate, Took 72.47ms)
+[dbug] Training sklearn.tree-log_loss-random
+[dbug] Done training sklearn.tree-log_loss-random (Took 5.82s)
+[dbug] Testing sklearn.tree-log_loss-random on train
+[dbug] Done testing sklearn.tree-log_loss-random on train (100% accurate, Took 94.10ms)
+[dbug] Validating group sklearn.tree
+[dbug] Testing sklearn.tree-gini-best on validate
+[dbug] Done testing sklearn.tree-gini-best on validate (76% accurate, Took 43.58ms)
+[dbug] Testing sklearn.tree-entropy-best on validate
+[dbug] Done testing sklearn.tree-entropy-best on validate (79% accurate, Took 14.32ms)
+[dbug] Testing sklearn.tree-log_loss-best on validate
+[dbug] Done testing sklearn.tree-log_loss-best on validate (79% accurate, Took 16.09ms)
+[dbug] Testing sklearn.tree-gini-random on validate
+[dbug] Done testing sklearn.tree-gini-random on validate (75% accurate, Took 16.35ms)
+[dbug] Testing sklearn.tree-entropy-random on validate
+[dbug] Done testing sklearn.tree-entropy-random on validate (77% accurate, Took 17.86ms)
+[dbug] Testing sklearn.tree-log_loss-random on validate
+[dbug] Done testing sklearn.tree-log_loss-random on validate (76% accurate, Took 15.59ms)
+[dbug] Completed group sklearn.tree
+====== Group: sklearn.tree
+Best model: sklearn.tree-log_loss-best
+
+=== Model:	 sklearn.tree-gini-best
+Training size:	 66203 pts.
+Training time:	 33.27s
+train: Accuracy=100%, TPP=899ns, Size=66203, Duration=59.53ms
+validate: Accuracy=76%, TPP=3730ns, Size=11683, Duration=43.58ms
+
+=== Model:	 sklearn.tree-entropy-best
+Training size:	 66203 pts.
+Training time:	 33.02s
+train: Accuracy=100%, TPP=868ns, Size=66203, Duration=57.43ms
+validate: Accuracy=79%, TPP=1226ns, Size=11683, Duration=14.32ms
+
+=== Model:	 sklearn.tree-log_loss-best
+Training size:	 66203 pts.
+Training time:	 33.29s
+train: Accuracy=100%, TPP=932ns, Size=66203, Duration=61.68ms
+validate: Accuracy=79%, TPP=1378ns, Size=11683, Duration=16.09ms
+
+=== Model:	 sklearn.tree-gini-random
+Training size:	 66203 pts.
+Training time:	 6.40s
+train: Accuracy=100%, TPP=938ns, Size=66203, Duration=62.07ms
+validate: Accuracy=75%, TPP=1399ns, Size=11683, Duration=16.35ms
+
+=== Model:	 sklearn.tree-entropy-random
+Training size:	 66203 pts.
+Training time:	 6.34s
+train: Accuracy=100%, TPP=1095ns, Size=66203, Duration=72.47ms
+validate: Accuracy=77%, TPP=1529ns, Size=11683, Duration=17.86ms
+
+=== Model:	 sklearn.tree-log_loss-random
+Training size:	 66203 pts.
+Training time:	 5.82s
+train: Accuracy=100%, TPP=1421ns, Size=66203, Duration=94.10ms
+validate: Accuracy=76%, TPP=1335ns, Size=11683, Duration=15.59ms
+
+[dbug] Creating group sklearn.svm
+[dbug] Training sklearn.svm-poly1
+[dbug] Done training sklearn.svm-poly1 (Took 3.66min)
+[dbug] Testing sklearn.svm-poly1 on train
+[dbug] Done testing sklearn.svm-poly1 on train (93% accurate, Took 7.41min)
+[dbug] Training sklearn.svm-poly2
+[dbug] Done training sklearn.svm-poly2 (Took 3.07min)
+[dbug] Testing sklearn.svm-poly2 on train
+[dbug] Done testing sklearn.svm-poly2 on train (98% accurate, Took 5.66min)
+[dbug] Training sklearn.svm-poly3
+[dbug] Done training sklearn.svm-poly3 (Took 3.02min)
+[dbug] Testing sklearn.svm-poly3 on train
+[dbug] Done testing sklearn.svm-poly3 on train (100% accurate, Took 5.25min)
+[dbug] Training sklearn.svm-poly4
+[dbug] Done training sklearn.svm-poly4 (Took 3.20min)
+[dbug] Testing sklearn.svm-poly4 on train
+[dbug] Done testing sklearn.svm-poly4 on train (100% accurate, Took 5.04min)
+[dbug] Training sklearn.svm-poly5
+[dbug] Done training sklearn.svm-poly5 (Took 3.42min)
+[dbug] Testing sklearn.svm-poly5 on train
+[dbug] Done testing sklearn.svm-poly5 on train (100% accurate, Took 4.95min)
+[dbug] Training sklearn.svm-poly6
+[dbug] Done training sklearn.svm-poly6 (Took 3.75min)
+[dbug] Testing sklearn.svm-poly6 on train
+[dbug] Done testing sklearn.svm-poly6 on train (99% accurate, Took 4.99min)
+[dbug] Training sklearn.svm-rbf
+[dbug] Done training sklearn.svm-rbf (Took 4.16min)
+[dbug] Testing sklearn.svm-rbf on train
+[dbug] Done testing sklearn.svm-rbf on train (98% accurate, Took 9.64min)
+[dbug] Training sklearn.svm-sigmoid
+[dbug] Done training sklearn.svm-sigmoid (Took 5.32min)
+[dbug] Testing sklearn.svm-sigmoid on train
+[dbug] Done testing sklearn.svm-sigmoid on train (57% accurate, Took 9.74min)
+[dbug] Validating group sklearn.svm
+[dbug] Testing sklearn.svm-poly1 on validate
+[dbug] Done testing sklearn.svm-poly1 on validate (91% accurate, Took 52.86s)
+[dbug] Testing sklearn.svm-poly2 on validate
+[dbug] Done testing sklearn.svm-poly2 on validate (95% accurate, Took 42.80s)
+[dbug] Testing sklearn.svm-poly3 on validate
+[dbug] Done testing sklearn.svm-poly3 on validate (96% accurate, Took 40.32s)
+[dbug] Testing sklearn.svm-poly4 on validate
+[dbug] Done testing sklearn.svm-poly4 on validate (96% accurate, Took 34.95s)
+[dbug] Testing sklearn.svm-poly5 on validate
+[dbug] Done testing sklearn.svm-poly5 on validate (95% accurate, Took 34.96s)
+[dbug] Testing sklearn.svm-poly6 on validate
+[dbug] Done testing sklearn.svm-poly6 on validate (94% accurate, Took 38.05s)
+[dbug] Testing sklearn.svm-rbf on validate
+[dbug] Done testing sklearn.svm-rbf on validate (96% accurate, Took 1.38min)
+[dbug] Testing sklearn.svm-sigmoid on validate
+[dbug] Done testing sklearn.svm-sigmoid on validate (57% accurate, Took 1.82min)
+[dbug] Completed group sklearn.svm
+====== Group: sklearn.svm
+Best model: sklearn.svm-poly3
+
+=== Model:	 sklearn.svm-poly1
+Training size:	 66203 pts.
+Training time:	 3.66min
+train: Accuracy=93%, TPP=6.71ms, Size=66203, Duration=7.41min
+validate: Accuracy=91%, TPP=4.52ms, Size=11683, Duration=52.86s
+
+=== Model:	 sklearn.svm-poly2
+Training size:	 66203 pts.
+Training time:	 3.07min
+train: Accuracy=98%, TPP=5.13ms, Size=66203, Duration=5.66min
+validate: Accuracy=95%, TPP=3.66ms, Size=11683, Duration=42.80s
+
+=== Model:	 sklearn.svm-poly3
+Training size:	 66203 pts.
+Training time:	 3.02min
+train: Accuracy=100%, TPP=4.76ms, Size=66203, Duration=5.25min
+validate: Accuracy=96%, TPP=3.45ms, Size=11683, Duration=40.32s
+
+=== Model:	 sklearn.svm-poly4
+Training size:	 66203 pts.
+Training time:	 3.20min
+train: Accuracy=100%, TPP=4.57ms, Size=66203, Duration=5.04min
+validate: Accuracy=96%, TPP=2.99ms, Size=11683, Duration=34.95s
+
+=== Model:	 sklearn.svm-poly5
+Training size:	 66203 pts.
+Training time:	 3.42min
+train: Accuracy=100%, TPP=4.49ms, Size=66203, Duration=4.95min
+validate: Accuracy=95%, TPP=2.99ms, Size=11683, Duration=34.96s
+
+=== Model:	 sklearn.svm-poly6
+Training size:	 66203 pts.
+Training time:	 3.75min
+train: Accuracy=99%, TPP=4.52ms, Size=66203, Duration=4.99min
+validate: Accuracy=94%, TPP=3.26ms, Size=11683, Duration=38.05s
+
+=== Model:	 sklearn.svm-rbf
+Training size:	 66203 pts.
+Training time:	 4.16min
+train: Accuracy=98%, TPP=8.74ms, Size=66203, Duration=9.64min
+validate: Accuracy=96%, TPP=7.11ms, Size=11683, Duration=1.38min
+
+=== Model:	 sklearn.svm-sigmoid
+Training size:	 66203 pts.
+Training time:	 5.32min
+train: Accuracy=57%, TPP=8.82ms, Size=66203, Duration=9.74min
+validate: Accuracy=57%, TPP=9.33ms, Size=11683, Duration=1.82min
+
+[dbug] Creating group sklearn.mlp
+[dbug] Training sklearn.mlp-100
+[dbug] Done training sklearn.mlp-100 (Took 1.19min)
+[dbug] Testing sklearn.mlp-100 on train
+[dbug] Done testing sklearn.mlp-100 on train (96% accurate, Took 207.18ms)
+[dbug] Training sklearn.mlp-100-100
+[dbug] Done training sklearn.mlp-100-100 (Took 1.37min)
+[dbug] Testing sklearn.mlp-100-100 on train
+[dbug] Done testing sklearn.mlp-100-100 on train (99% accurate, Took 262.67ms)
+[dbug] Training sklearn.mlp-100-100-100
+[dbug] Done training sklearn.mlp-100-100-100 (Took 1.13min)
+[dbug] Testing sklearn.mlp-100-100-100 on train
+[dbug] Done testing sklearn.mlp-100-100-100 on train (99% accurate, Took 318.42ms)
+[dbug] Training sklearn.mlp-400
+[dbug] Done training sklearn.mlp-400 (Took 2.20min)
+[dbug] Testing sklearn.mlp-400 on train
+[dbug] Done testing sklearn.mlp-400 on train (99% accurate, Took 484.54ms)
+[dbug] Training sklearn.mlp-400-400
+[dbug] Done training sklearn.mlp-400-400 (Took 4.67min)
+[dbug] Testing sklearn.mlp-400-400 on train
+[dbug] Done testing sklearn.mlp-400-400 on train (99% accurate, Took 781.11ms)
+[dbug] Training sklearn.mlp-400-400-400
+[dbug] Done training sklearn.mlp-400-400-400 (Took 9.81min)
+[dbug] Testing sklearn.mlp-400-400-400 on train
+[dbug] Done testing sklearn.mlp-400-400-400 on train (99% accurate, Took 1.09s)
+[dbug] Training sklearn.mlp-800-400-200
+[dbug] Done training sklearn.mlp-800-400-200 (Took 11.83min)
+[dbug] Testing sklearn.mlp-800-400-200 on train
+[dbug] Done testing sklearn.mlp-800-400-200 on train (99% accurate, Took 1.40s)
+[dbug] Validating group sklearn.mlp
+[dbug] Testing sklearn.mlp-100 on validate
+[dbug] Done testing sklearn.mlp-100 on validate (90% accurate, Took 28.04ms)
+[dbug] Testing sklearn.mlp-100-100 on validate
+[dbug] Done testing sklearn.mlp-100-100 on validate (94% accurate, Took 34.83ms)
+[dbug] Testing sklearn.mlp-100-100-100 on validate
+[dbug] Done testing sklearn.mlp-100-100-100 on validate (94% accurate, Took 43.86ms)
+[dbug] Testing sklearn.mlp-400 on validate
+[dbug] Done testing sklearn.mlp-400 on validate (94% accurate, Took 70.59ms)
+[dbug] Testing sklearn.mlp-400-400 on validate
+[dbug] Done testing sklearn.mlp-400-400 on validate (95% accurate, Took 113.06ms)
+[dbug] Testing sklearn.mlp-400-400-400 on validate
+[dbug] Done testing sklearn.mlp-400-400-400 on validate (96% accurate, Took 158.25ms)
+[dbug] Testing sklearn.mlp-800-400-200 on validate
+[dbug] Done testing sklearn.mlp-800-400-200 on validate (96% accurate, Took 209.76ms)
+[dbug] Completed group sklearn.mlp
+====== Group: sklearn.mlp
+Best model: sklearn.mlp-800-400-200
+
+=== Model:	 sklearn.mlp-100
+Training size:	 66203 pts.
+Training time:	 1.19min
+train: Accuracy=96%, TPP=3129ns, Size=66203, Duration=207.18ms
+validate: Accuracy=90%, TPP=2400ns, Size=11683, Duration=28.04ms
+
+=== Model:	 sklearn.mlp-100-100
+Training size:	 66203 pts.
+Training time:	 1.37min
+train: Accuracy=99%, TPP=3968ns, Size=66203, Duration=262.67ms
+validate: Accuracy=94%, TPP=2981ns, Size=11683, Duration=34.83ms
+
+=== Model:	 sklearn.mlp-100-100-100
+Training size:	 66203 pts.
+Training time:	 1.13min
+train: Accuracy=99%, TPP=4810ns, Size=66203, Duration=318.42ms
+validate: Accuracy=94%, TPP=3754ns, Size=11683, Duration=43.86ms
+
+=== Model:	 sklearn.mlp-400
+Training size:	 66203 pts.
+Training time:	 2.20min
+train: Accuracy=99%, TPP=7319ns, Size=66203, Duration=484.54ms
+validate: Accuracy=94%, TPP=6042ns, Size=11683, Duration=70.59ms
+
+=== Model:	 sklearn.mlp-400-400
+Training size:	 66203 pts.
+Training time:	 4.67min
+train: Accuracy=99%, TPP=11799ns, Size=66203, Duration=781.11ms
+validate: Accuracy=95%, TPP=9677ns, Size=11683, Duration=113.06ms
+
+=== Model:	 sklearn.mlp-400-400-400
+Training size:	 66203 pts.
+Training time:	 9.81min
+train: Accuracy=99%, TPP=16455ns, Size=66203, Duration=1.09s
+validate: Accuracy=96%, TPP=13546ns, Size=11683, Duration=158.25ms
+
+=== Model:	 sklearn.mlp-800-400-200
+Training size:	 66203 pts.
+Training time:	 11.83min
+train: Accuracy=99%, TPP=21169ns, Size=66203, Duration=1.40s
+validate: Accuracy=96%, TPP=17954ns, Size=11683, Duration=209.76ms
+
+[dbug] Finding best model...
+[dbug] Testing sklearn.knn-k5 on test
+[dbug] Done testing sklearn.knn-k5 on test (94% accurate, Took 18.15s)
+[dbug] Testing sklearn.tree-log_loss-best on test
+[dbug] Done testing sklearn.tree-log_loss-best on test (79% accurate, Took 16.11ms)
+[dbug] Testing sklearn.svm-poly3 on test
+[dbug] Done testing sklearn.svm-poly3 on test (96% accurate, Took 44.48s)
+[dbug] Testing sklearn.mlp-800-400-200 on test
+[dbug] Done testing sklearn.mlp-800-400-200 on test (96% accurate, Took 238.30ms)
+[dbug] Testing sklearn.svm-poly3 on estimate
+[dbug] Done testing sklearn.svm-poly3 on estimate (96% accurate, Took 52.47s)
+====== Best model
+=== Model:	 sklearn.svm-poly3
+Training size:	 66203 pts.
+Training time:	 3.02min
+train: Accuracy=100%, TPP=4.76ms, Size=66203, Duration=5.25min
+validate: Accuracy=96%, TPP=3.45ms, Size=11683, Duration=40.32s
+test: Accuracy=96%, TPP=3.24ms, Size=13745, Duration=44.48s
+estimate: Accuracy=96%, TPP=3.24ms, Size=16171, Duration=52.47s
+
+Program completed after 139.67min
