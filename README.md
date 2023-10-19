@@ -217,6 +217,11 @@ To understand these errors better, we compiled a list of 5 examples of each labe
 We find some of these errors to be completely understandable (and we would have struggled to identify them ourself), and others to be not so much.
 
 ### Future improvements
-We could take a deeper look into the different activation functions for MLP and see if they offer any improvements, but that might prove fruitless.
+If given more time and resources we would like to look more into MLPs.  
+We would like to learn more about the different activation functions, how they work and their pros and cons.  
+  
+We would also like to look into optimalization.  
+Currently we only utilize one thread, but the different trainers could absolutely run in parallell.  
 
-We could also see if we are able to speed up the training/testing as it at the moment takes quite a while on even a fast computer
+`sklearn` also has many tools and utilities that we have not taken advantage of.  
+If we were to continute this project, those helpers might be worth looking into.
