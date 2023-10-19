@@ -126,7 +126,7 @@ We initially expected the error rate for `E` to be higher due to its lower repre
 The two primary confusions are `D`-`0` and `B`-`8`.  
 To understand these errors better, we compiled a list of 5 examples of each label that the model got wrong:  
 ![Error examples](./dump/report/examples.mislabelled.png)  
-We find some of these errors to be completely understandable(and would have struggled to identify them ourself), and others to be not so much.
+We find some of these errors to be completely understandable (and we would have struggled to identify them ourself), and others to be not so much.
 
 ### Future improvements
 We could take a deeper look into the different activation functions for MLP and see if they offer any improvements, but that might prove fruitless.
