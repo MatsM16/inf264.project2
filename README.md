@@ -87,13 +87,13 @@ Although the performed badly, it at least did so very fast (Spending around `100
 Here is the accuracy of the `decition tree` models:  
 ![Decision tree accuracy](./dump/report/sklearn.tree.accuracy.png)  
   
-We originally planned to use our own decision tree classifier from `project 1`, but it was incredibly slow and very inaccurate (less than `30%` at best), so we decided to use the sklearn instead.  
+We originally planned to use our own decision tree classifier from `project 1`, but it was incredibly slow and very inaccurate (less than `30%` at best), so we decided to use the sklearn instead. As to why it was so much more inaccurate we aren't fully sure, but it could have to do with more labels in this dataset.  
 
 #### Support Vector Machine
 *(Code: `code/model_trainers/sklearn_svm.py`)*  
 
 For the `svm` models, we decided to try different kernels (`poly`, `rbf` and `sigmoid`) and degrees (`1`-`6`).  
-The `linear` kernel was too slow in training to be included. We let it run for `6 hours` on a reasonably fast computer, but when it still would not finish, we decided to persue the other parameters instead.  
+The `linear` kernel was too slow in training to be included. We let it run for `12 hours` on a reasonably fast computer, but when it still would not finish, we decided to persue the other parameters instead.  
 In the end, we experienced the best accuracy when using an `svm` with kernel set to `poly` and degree set to `3`.  
 The accuracy was `96%` and it spent around `3ms` per prediction.  
 This ended up being our [final classifier](#final-classifier), and we go into more details in [here](#final-classifier).
@@ -126,6 +126,9 @@ We initially expected the error rate for `E` to be higher due to its lower repre
 The two primary confusions are `D`-`0` and `B`-`8`.  
 To understand these errors better, we compiled a list of 5 examples of each label that the model got wrong:  
 ![Error examples](./dump/report/examples.mislabelled.png)  
-We find some of these errors to be completely understandable, and others to be not so much.
+We find some of these errors to be completely understandable(and would have struggled to identify them ourself), and others to be not so much.
 
 ### Future improvements
+We could take a deeper look into the different activation functions for MLP and see if they offer any improvements, but that might prove fruitless.
+
+We could also see if we are able to speed up the training/testing as it at the moment takes quite a while on even a fast computer
