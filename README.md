@@ -51,10 +51,98 @@ We immidiatly notice that the images are very noisy, but to avoid overfitting an
 *(Figure 1-2, Label examples)*
 
 ### Model selection
-* Data split
-* How to measure best model
-* Selection process
-* Test on training to detect overfitting
+Here we go into detail about how we select the best model.  
+If you want to see which models are competing, see [Model candidates](#model-candidates).  
+We use `accuracy` as a performance measure because in the context of the model usage, an accurate model is a good model.  
+We also measure the time per prediction (_TPP in the logs_) and training time.  
+Note that the time measurements vary greatly from computer to computer and some from run to tun.
+
+1. **Split the data**  
+   First we split the data into three datasets.  
+   `train` - Used to train the models.  
+   `val` - Used to pick the best model.  
+   `test` - Used to estimate real performance on best model.  
+   The reason we need both `val` and `train` is that when we choose the best performing model on `val`,  
+   the selected model might have gotten lucky on the datapoints and performed _too_ well.  
+   In a way, we optimized for `val`.  
+2. **Train and measure**  
+   The `train` dataset is given to the model trainers located in `code/model_trainers/`.  
+   The trainer located in `code/model_trainers/trainer.py` then splits the original `train` set into smaller `train` and `val` sets.  
+   The models are then trained on `train`-set and measured on `train` and `val`-set.  
+   We measure on both sets to identify overfitting.  
+3. **Pick local winner**  
+   Once all the models of a given type (like _Decision tree_) are trained and measured, we pick a winner amongst that type which is a candidate for out [final model](#final-classifier).  
+   We also log the performance of all the models of the type like this:  
+   ```
+    ====== Group: sklearn.tree
+    Best model: sklearn.tree-log_loss-best
+
+    === Model:       sklearn.tree-gini-best
+    Training size:   66203 pts.
+    Training time:   33.27s
+    train: Accuracy=100%, TPP=899ns, Size=66203, Duration=59.53ms
+    validate: Accuracy=76%, TPP=3730ns, Size=11683, Duration=43.58ms
+
+    === Model:       sklearn.tree-entropy-best
+    Training size:   66203 pts.
+    Training time:   33.02s
+    train: Accuracy=100%, TPP=868ns, Size=66203, Duration=57.43ms
+    validate: Accuracy=79%, TPP=1226ns, Size=11683, Duration=14.32ms
+
+    === Model:       sklearn.tree-log_loss-best
+    Training size:   66203 pts.
+    Training time:   33.29s
+    train: Accuracy=100%, TPP=932ns, Size=66203, Duration=61.68ms
+    validate: Accuracy=79%, TPP=1378ns, Size=11683, Duration=16.09ms
+
+    === Model:       sklearn.tree-gini-random
+    Training size:   66203 pts.
+    Training time:   6.40s
+    train: Accuracy=100%, TPP=938ns, Size=66203, Duration=62.07ms
+    validate: Accuracy=75%, TPP=1399ns, Size=11683, Duration=16.35ms
+
+    === Model:       sklearn.tree-entropy-random
+    Training size:   66203 pts.
+    Training time:   6.34s
+    train: Accuracy=100%, TPP=1095ns, Size=66203, Duration=72.47ms
+    validate: Accuracy=77%, TPP=1529ns, Size=11683, Duration=17.86ms
+
+    === Model:       sklearn.tree-log_loss-random
+    Training size:   66203 pts.
+    Training time:   5.82s
+    train: Accuracy=100%, TPP=1421ns, Size=66203, Duration=94.10ms
+    validate: Accuracy=76%, TPP=1335ns, Size=11683, Duration=15.59ms
+   ```
+   And generate a plot like this:  
+   ![Decision tree performance](./dump/report/sklearn.tree.accuracy.png)
+
+3. **Pick final classifier**  
+   Once all the models have been trained and measured, we pick the final classifier.  
+   We do this by testing all the _local winners_ on the original `val`-dataset.  
+   We then pick the best-performing classifier.
+
+4. **Evaluate final classifier**  
+   The current estimates we have for the final classifier are optimistic because we picket the model that performed best on these measurements.  
+   To estimeate real world performance, the [final classifier](#final-classifier) is now tested on the `test`-dataset.  
+   The final test is logged like this:
+   ```
+   ====== Best model
+    === Model:	 sklearn.svm-poly3
+    Training size:	 66203 pts.
+    Training time:	 1.99min
+    train: Accuracy=100%, TPP=3.26ms, Size=66203, Duration=3.60min
+    validate: Accuracy=96%, TPP=2.98ms, Size=11683, Duration=34.81s
+    test: Accuracy=96%, TPP=2.98ms, Size=13745, Duration=41.02s
+    estimate: Accuracy=96%, TPP=2.99ms, Size=16171, Duration=48.43s
+   ```
+   Here `training size` is the number of datapoints the model was trained on.  
+   `Training time` is the time it took to train the model.  
+   `train` contains the measurements from the training dataset.  
+   `validate` contains the measurements from the validation set derrived from the training set.  
+   `test` contains the meaurements from the original validation set. (_very poor naming, we know..._)  
+   `estimate` contains the measurements from the test dataset.  
+
+   We also make various other plots and measurements of the final classifier which you can read about [here](#final-classifier).
 
 ### Model candidates
 We decided to try four different types of models:
@@ -129,3 +217,5 @@ To understand these errors better, we compiled a list of 5 examples of each labe
 We find some of these errors to be completely understandable, and others to be not so much.
 
 ### Future improvements
+* More MLP
+* Maybe convolutions
